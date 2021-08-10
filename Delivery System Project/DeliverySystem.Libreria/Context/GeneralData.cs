@@ -8,8 +8,7 @@ namespace DeliverySystem.Libreria.Context
 {
     public static class GeneralData
     {
-        public static string conection = @"Data Source=(local);Initial Catalog=Delivery;"
+        public static string conection = @"Data Source=(local);Initial Catalog=DeliverySystemDatabase;"
                 + "Integrated Security=SSPI;";
-
     }
 }

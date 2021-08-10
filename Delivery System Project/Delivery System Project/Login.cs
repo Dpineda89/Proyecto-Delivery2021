@@ -27,10 +27,17 @@ namespace Delivery_System_Project
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Loggin(e);
+        }
+
+        void Loggin(EventArgs e)
+        {
             var result = this.userSecurity.ValidateUser(this.textBox1.Text, this.textBox2.Text);
 
-            if (result == true)
+            if (result!= null)
             {
+                DeliverySystem.Libreria.Utilidades.GeneralInfo.Usuario = result.UserName;
+                this.ParentForm.Refresh();
                 this.Close();
             }
             else
@@ -47,6 +54,28 @@ namespace Delivery_System_Project
         private void Login_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(textBox1.Text))
+            {
+                if (e.KeyChar == (char)Keys.Enter)
+                {
+                    textBox2.Focus();
+                }
+            }
+        }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(textBox1.Text) && !string.IsNullOrEmpty(textBox1.Text))
+            {
+                if (e.KeyChar == (char)Keys.Enter)
+                {
+                    button1.PerformClick();
+                }
+            }
         }
     }
 }

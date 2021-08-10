@@ -16,6 +16,11 @@ namespace Delivery_System_Project
         public Menu()
         {
             InitializeComponent();
+
+        }
+        void btnUpdate_Click(object sender, EventArgs e) 
+        {
+
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -36,7 +41,17 @@ namespace Delivery_System_Project
         {
             var form = new Login();
             form.MdiParent = this;
+            form.FormClosed += Form_FormClosed;
             form.Show();
+        }
+
+        private void Form_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            toolStripStatusLabel1.Text += DeliverySystem.Libreria.Utilidades.GeneralInfo.Usuario;
+        }
+
+        void ob_ButtonClicked(object sender, EventArgs e)
+        {
         }
 
         private void mostrarClientesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -105,6 +120,25 @@ namespace Delivery_System_Project
         private void facturasToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             var form = new GFacturas();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void verUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new Usuario();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void crearUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new CrearUsuario();
             form.MdiParent = this;
             form.Show();
         }

@@ -169,6 +169,11 @@ namespace Delivery_System_Project
             }
 
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public class ProductsModel

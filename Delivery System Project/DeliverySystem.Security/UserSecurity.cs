@@ -17,10 +17,10 @@ namespace DeliverySystem.Security
             this.deliverySystem = new DeliverySystemContext(conn);
         }
 
-        public bool ValidateUser(string user, string password)
+        public Libreria.Model.Usuario ValidateUser(string user, string password)
         {
-            var exist = this.deliverySystem.Usuario.Any(u => u.UserName == user && u.Password == password);
-            return exist;
+            var usuario = this.deliverySystem.Usuario.FirstOrDefault(u => u.UserName == user && u.Password == password);
+            return usuario;
         }
     }
 }
